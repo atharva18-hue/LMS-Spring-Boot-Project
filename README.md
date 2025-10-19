@@ -1,4 +1,4 @@
-# Library-Management-System ![](spring.PNG)
+# Library Management System ( Java + Spring boot + Maven ) ![](spring.PNG)
 ## Introduction 
 A Library Management System designed to see the books available in a college library. It allows students to register as a user and issue/return books from the college library hassle free. The backend is designed as a **Monolithic Architecture** with various nuances as discussed below.
 ## Technologies and Dependencies Used
@@ -12,7 +12,7 @@ A Library Management System designed to see the books available in a college lib
 ## Using Library Management System
 CLI-->
 ```
-git clone https://github.com/saikat021/Library-Management-System.git
+https://github.com/atharva18-hue/LMS-Spring-Boot-Project.git
 cd Library-Management-System
 mvn package 
 java -jar target/Student-library-0.0.1-SNAPSHOT.jar
@@ -99,8 +99,9 @@ Each example API preceeded by "http://localhost:8080"
 * /transaction/all--> gives a list of all transactions in the system (ADMIN) 
 * /transaction/issueBook--> issues a book(STUDENT)  
 .....
-## Author and Developed by
-Saikat Chakraborty
+## Author 
+Atharva Chavhan
+Gmail: atharvachavhan18@gmail.com
 
 
 
