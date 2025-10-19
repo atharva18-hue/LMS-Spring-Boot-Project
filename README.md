@@ -49,7 +49,6 @@ An additional SQL table created to map the N:M mapping between the **Card** and 
 * Book_id Foreign key 
 * isIssue Operations (true for issue operations and false for return operation)
 * Transaction status (SUCCESSFUL/PENDING/FAILED)
-* date
 * fine amount (Applicable only while return operations and fine calculated based on a pre-defined Business logic written clearly in the Transaction Service class)
 
 ---------------------------------------------------------------------
