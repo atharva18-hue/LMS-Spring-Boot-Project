@@ -9,6 +9,8 @@ A Library Management System designed to see the books available in a college lib
 * [MySQL](https://www.mysql.com/) used as a Java persistence store
 * [Project Lombok](https://projectlombok.org/) Reduces the time  of writing java boiler plate code.
 
+  ---------------------------------------------------------------------------------------------
+
 ## Using Library Management System
 CLI-->
 ```
@@ -20,6 +22,8 @@ java -jar target/Student-library-0.0.1-SNAPSHOT.jar
 Intellij/Eclipse-->
 1. Let maven resolve dependencies 
 2. run SpringBootApplication
+
+-------------------------------------------------------------------
 
 ## Backend Design 
 ### Entities 
@@ -33,7 +37,9 @@ Actors/Entities are inspired by the real world entities that can use the applica
 4. **Author** having attributes:
 * unique primary key author_id, country, name, emailId
 5. **User** used mainly for authentication and authorization has attributes:
-* unique primary key user_id, Authorization--> (STUDENT/ADMIN or BOTH), Username(emailId for student), Password. 
+* unique primary key user_id, Authorization--> (STUDENT/ADMIN or BOTH), Username(emailId for student), Password.
+
+  --------------------------------------------------------------------------------
 
 ### Relationships Between Entities and ER diagram
 An additional SQL table created to map the N:M mapping between the **Card** and the **Book** called **Transaction table**. The Transaction table has the following entities:
@@ -46,10 +52,11 @@ An additional SQL table created to map the N:M mapping between the **Card** and 
 * date
 * fine amount (Applicable only while return operations and fine calculated based on a pre-defined Business logic written clearly in the Transaction Service class)
 
-
-ER Diagram:
+---------------------------------------------------------------------
+## ER Diagram:
 ![](ER.PNG)
 
+---------------------------------------------------------------------------------------
 ### Functionalities Exposed 
 #### Student Controller class 
 The REST APIs exposed are 
@@ -59,20 +66,26 @@ The REST APIs exposed are
 #### Book and Author Controller class 
 The REST APIs exposed are normal CRUD operations on Book and Author entities.
 
+----------------------------------------------------------------------------------------------
 #### Transaction Controller 
 Two of the most important REST APIs exposed are:
+
+-----------------------------------------------------------------
 ##### Issue Book
+
 **https://localhost:8080/issueBook?bookId=_&cardId=_** goes through the following operations before issueing a book:
 Constraints : --> 
+
 1. Check if card is Activated?
 2. Check if the book is available? 
 3. Check if the number of books issued with the requested card has gone past the maximum limit of number of books to be issued.
 Operations :-->
+
 1. Book status marked unavailable in the Book table.
 2. Book is mapped to a card 
 3. Transaction entry made in the transaction table and the Transaction unique UUID forwarded to the client in a Response Entity.
 
-
+------------------------------------------------------------------------------------
 ##### Return Book
 **https://localhost:8080/returnBook?bookId=_&cardId=_** goes through the following operations before returning a book into the library.
 Constraints: -->
@@ -86,6 +99,8 @@ Operations :-->
 
 Various transaction entries in the table:
 ![](transaction.PNG)
+
+----------------------------------------
  
 ### Security (Checkout Branch Security)
 Spring Security is used for Authentication and Authorization. For every API call it is checked whether the calling entity has cookies that make it a valid entity in the system and the Username(emailId in the student table) is the same as the details of whichever entity is changed by hitting a CRUD API regarding that table.
@@ -97,10 +112,12 @@ Each example API preceeded by "http://localhost:8080"
 * /student/updateStudent--> update student details (STUDENT)[ADMIN should not be allowed to change the student details]
 * /student/changePassword--> Strictly STUDENT access
 * /transaction/all--> gives a list of all transactions in the system (ADMIN) 
-* /transaction/issueBook--> issues a book(STUDENT)  
-.....
+* /transaction/issueBook--> issues a book(STUDENT)
+
+  -----------------------------------------------------
 ## Author 
 Atharva Chavhan
+
 Gmail: atharvachavhan18@gmail.com
 
 
